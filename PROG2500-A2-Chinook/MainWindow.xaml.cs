@@ -24,5 +24,26 @@ namespace PROG2500_A2_Chinook
         {
             InitializeComponent();
         }
+
+        private void NavigateToHome(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/HomePage.xaml", UriKind.Relative));
+        }
+
+        private void NavigateToArtists(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/ArtistsPage.xaml", UriKind.Relative));
+        }
+
+        private void NavigateToAlbums(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/AlbumsPage.xaml", UriKind.Relative));
+        }
+
+        private void NavigateToTracks(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/TracksPage.xaml", UriKind.Relative));
+        }
+        
     }
 }

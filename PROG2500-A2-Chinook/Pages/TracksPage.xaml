@@ -1,0 +1,38 @@
+﻿<Page x:Class="PROG2500_A2_Chinook.Pages.TracksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PROG2500_A2_Chinook.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="700"
+      Title="TracksPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Row for the text -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row for the ListView -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Chinook Tracks text -->
+        <TextBlock Text="Chinook Tracks" FontWeight="Bold" FontSize="18" Margin="10,10,10,0"/>
+
+        <!-- ListView -->
+        <ListView Name="TracksListView" Grid.Row="1" Margin="10">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                        <TextBlock Text="{Binding Composer, StringFormat='Composer: {0:N0}'}"/>
+                        <TextBlock Text="{Binding Milliseconds, StringFormat='Length: {0:N0} ms'}"/>
+                        <TextBlock Text="{Binding Bytes, StringFormat='Size: {0:N0} bytes'}"/>
+                        <TextBlock Text="{Binding UnitPrice, StringFormat='Price: {0:C2}'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+
+</Page>

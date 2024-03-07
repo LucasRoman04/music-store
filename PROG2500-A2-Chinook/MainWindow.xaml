@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG2500_A2_Chinook"
         mc:Ignorable="d"
-        Title="Chinook Music Store" Height="650" Width="900">
+        Title="Chinook Music Store" Height="450" Width="700">
     <Grid>
+        <!-- Menu Bar -->
+        <Menu>
+            <MenuItem Header="File" FontSize="15">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Pages" FontSize="15">
+                <MenuItem Header="Home" Click="NavigateToHome"/>
+                <MenuItem Header="View Artists" Click="NavigateToArtists"/>
+                <MenuItem Header="View Albums" Click="NavigateToAlbums"/>
+                <MenuItem Header="View Tracks" Click="NavigateToTracks"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Title -->
+        <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,18,0,356"/>
+
+
+        <!-- Content Area -->
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="70,50,0,0"/>
 
     </Grid>
 </Window>
