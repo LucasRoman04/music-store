@@ -25,6 +25,11 @@ namespace PROG2500_A2_Chinook
             InitializeComponent();
         }
 
+        private void ExitClicked(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Uri("Pages/HomePage.xaml", UriKind.Relative));

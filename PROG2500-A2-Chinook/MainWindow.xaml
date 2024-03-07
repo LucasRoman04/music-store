@@ -6,23 +6,83 @@
         xmlns:local="clr-namespace:PROG2500_A2_Chinook"
         mc:Ignorable="d"
         Title="Chinook Music Store" Height="450" Width="700">
+
     <Grid>
         <!-- Menu Bar -->
         <Menu>
             <MenuItem Header="File" FontSize="15">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="ExitClicked">
+                    <MenuItem.Icon>
+                        <Image Source="Images/exit_icon.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Pages" FontSize="15">
-                <MenuItem Header="Home" Click="NavigateToHome"/>
-                <MenuItem Header="View Artists" Click="NavigateToArtists"/>
-                <MenuItem Header="View Albums" Click="NavigateToAlbums"/>
-                <MenuItem Header="View Tracks" Click="NavigateToTracks"/>
+                <MenuItem Header="Home" Click="NavigateToHome">
+                    <MenuItem.Icon>
+                        <Image Source="Images/home_icon.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="View Artists" Click="NavigateToArtists">
+                    <MenuItem.Icon>
+                        <Image Source="Images/artists_icon.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="View Albums" Click="NavigateToAlbums">
+                    <MenuItem.Icon>
+                        <Image Source="Images/albums_icon.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="View Tracks" Click="NavigateToTracks">
+                    <MenuItem.Icon>
+                        <Image Source="Images/tracks_icon.png" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
         <!-- Title -->
         <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,18,0,356"/>
 
+        <!-- Left Side Bar -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,60,0,10" Width="41">
+            <Button Content="Home" Click="NavigateToHome" Margin="0,0,0,10" ToolTip="Home Page" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="Images/home_icon.png" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Artists" Click="NavigateToArtists" Margin="0,0,0,10" ToolTip="View All Artists" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="Images/artists_icon.png" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Albums" Click="NavigateToAlbums" Margin="0,0,0,10" ToolTip="View All Albums" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="Images/albums_icon.png" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Tracks" Click="NavigateToTracks" Margin="0,0,0,10" ToolTip="View All Tracks" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="Images/tracks_icon.png" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
 
         <!-- Content Area -->
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="70,50,0,0"/>

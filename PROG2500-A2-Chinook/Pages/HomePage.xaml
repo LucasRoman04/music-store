@@ -9,7 +9,7 @@
       Title="HomePage">
 
     <Grid>
-        <TextBlock Text="Chinook - Your one-stop shop for great music" FontSize="15" FontWeight="Bold" Margin="10"/>
+        <TextBlock Text="Chinook - Your one-stop shop for great music" FontSize="18" FontWeight="Bold" Margin="10"/>
         <TextBlock Text="Please select a page to begin your musical journey" FontSize="15" Margin="10,35,26,35"/>
     </Grid>
 </Page>
