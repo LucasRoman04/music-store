@@ -8,8 +8,18 @@
         Title="Chinook Music Store" Height="450" Width="700">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="379*"/>
+        </Grid.RowDefinitions>
+
         <!-- Menu Bar -->
-        <Menu>
+        <Menu Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#408BF0">
             <MenuItem Header="File" FontSize="15">
                 <MenuItem Header="Exit" Click="ExitClicked">
                     <MenuItem.Icon>
@@ -42,11 +52,11 @@
         </Menu>
 
         <!-- Title -->
-        <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,18,0,356"/>
+        <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,1,0,359" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#285FF1"/>
 
         <!-- Left Side Bar -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="10,60,0,10" Width="41">
-            <Button Content="Home" Click="NavigateToHome" Margin="0,0,0,10" ToolTip="Home Page" Cursor="Hand">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0" Width="56" Grid.Row="1" Background="#285FF1" Grid.RowSpan="2">
+            <Button Content="Home" Click="NavigateToHome" Margin="0,25,0,15" ToolTip="Home Page" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -55,7 +65,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="Artists" Click="NavigateToArtists" Margin="0,0,0,10" ToolTip="View All Artists" Cursor="Hand">
+            <Button Content="Artists" Click="NavigateToArtists" Margin="0,0,0,15" ToolTip="View All Artists" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -64,7 +74,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="Albums" Click="NavigateToAlbums" Margin="0,0,0,10" ToolTip="View All Albums" Cursor="Hand">
+            <Button Content="Albums" Click="NavigateToAlbums" Margin="0,0,0,15" ToolTip="View All Albums" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -73,7 +83,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Content="Tracks" Click="NavigateToTracks" Margin="0,0,0,10" ToolTip="View All Tracks" Cursor="Hand">
+            <Button Content="Tracks" Click="NavigateToTracks" Margin="0,0,0,15" ToolTip="View All Tracks" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -85,7 +95,7 @@
         </StackPanel>
 
         <!-- Content Area -->
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="70,50,0,0"/>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,31,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="#408BF0"/>
 
     </Grid>
 </Window>

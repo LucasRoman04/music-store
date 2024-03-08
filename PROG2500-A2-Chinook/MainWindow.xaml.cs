@@ -23,6 +23,12 @@ namespace PROG2500_A2_Chinook
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavigateToHome(null, null); // Navigate to the home page when MainWindow is loaded
         }
 
         private void ExitClicked(object sender, RoutedEventArgs e)

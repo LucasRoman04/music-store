@@ -20,11 +20,11 @@
         <TextBlock Text="Chinook Artists" FontWeight="Bold" FontSize="18" Margin="10"/>
 
         <!-- ListView for displaying albums -->
-        <ListView Name="ArtistsListView" Margin="10,0,10,10" Grid.Row="1">
+        <ListView Name="ArtistsListView" Margin="10,0,10,10" Grid.Row="1" Background="#9FC1FD">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ArtistId}"/>
-                    <GridViewColumn Header="Artist Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="35" Header="ID" DisplayMemberBinding="{Binding ArtistId}"/>
+                    <GridViewColumn Width="200" Header="Artist Name" DisplayMemberBinding="{Binding Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>
