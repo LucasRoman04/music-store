@@ -55,6 +55,16 @@ namespace PROG2500_A2_Chinook
         {
             MainFrame.Navigate(new Uri("Pages/TracksPage.xaml", UriKind.Relative));
         }
-        
+
+        private void NavigateToMusicCatalog(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/MusicCatalogPage.xaml", UriKind.Relative));
+        }
+
+        private void NavigateToCustomerOrders(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Uri("Pages/CustomerOrdersPage.xaml", UriKind.Relative));
+        }
+
     }
 }

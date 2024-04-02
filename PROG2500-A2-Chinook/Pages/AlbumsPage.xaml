@@ -8,23 +8,37 @@
       d:DesignHeight="450" d:DesignWidth="700"
       Title="AlbumsPage">
 
+    <Page.Resources>
+        <BitmapImage x:Key="SearchIcon" UriSource="/Images/search_icon.png"></BitmapImage>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <!-- Row for the text -->
+            <!-- Row for the text and search -->
             <RowDefinition Height="Auto"/>
             <!-- Row for the ListView -->
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Chinook Albums text -->
-        <TextBlock Text="Chinook Albums" FontWeight="Bold" FontSize="18" Margin="10"/>
+        <TextBlock Text="Chinook Albums" Style="{StaticResource PageTitleTextBoxStyle}"/>
+
+        <!-- Search Box -->
+        <StackPanel Orientation="Horizontal" Margin="300,0,10,5">
+            <TextBlock Text="Search Albums:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="SearchTextBox" VerticalAlignment="Center" Width="180"/>
+            <Button Click="SearchButton_Click" Width="22" Height="22">
+                <Image Source="{StaticResource SearchIcon}"/>
+            </Button>
+        </StackPanel>
 
         <!-- ListView for displaying albums -->
-        <ListView Name="AlbumsListView" Margin="10,0,10,10" Grid.Row="1" Background="#9FC1FD">
+        <ListView Name="AlbumsListView" Margin="10,0,10,10" Grid.Row="1" Background="{StaticResource PageBackgroundColor}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="35" Header="ID" DisplayMemberBinding="{Binding AlbumId}"/>
-                    <GridViewColumn Width="200" Header="Album Name" DisplayMemberBinding="{Binding Title}"/>
+                    <!-- Using partial class -->
+                    <GridViewColumn Width="35" Header="ID" DisplayMemberBinding="{Binding myAlbumId}"/>
+                    <GridViewColumn Width="540" Header="Album Name" DisplayMemberBinding="{Binding myAlbumTitle}"/>
                 </GridView>
             </ListView.View>
         </ListView>

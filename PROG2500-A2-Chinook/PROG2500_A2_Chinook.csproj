@@ -11,8 +11,11 @@
   <ItemGroup>
     <None Remove="Images\albums_icon.png" />
     <None Remove="Images\artists_icon.png" />
+    <None Remove="Images\customer_orders_icon.png" />
     <None Remove="Images\exit_icon.png" />
     <None Remove="Images\home_icon.png" />
+    <None Remove="Images\music_catalog_icon.png" />
+    <None Remove="Images\search_icon.png" />
     <None Remove="Images\tracks_icon.png" />
   </ItemGroup>
 
@@ -32,8 +35,11 @@
   <ItemGroup>
     <Resource Include="Images\albums_icon.png" />
     <Resource Include="Images\artists_icon.png" />
+    <Resource Include="Images\customer_orders_icon.png" />
     <Resource Include="Images\exit_icon.png" />
     <Resource Include="Images\home_icon.png" />
+    <Resource Include="Images\music_catalog_icon.png" />
+    <Resource Include="Images\search_icon.png" />
     <Resource Include="Images\tracks_icon.png" />
   </ItemGroup>
 

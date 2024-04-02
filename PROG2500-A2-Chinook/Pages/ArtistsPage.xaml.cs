@@ -38,5 +38,22 @@ namespace PROG2500_A2_Chinook.Pages
                 ArtistsListView.ItemsSource = artists;
             }
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the search text from the TextBox
+            string searchText = SearchTextBox.Text.ToLower();
+
+            using (var context = new ChinookContext())
+            {
+                // Query the database to find matching artists
+                var searchedArtists = context.Artists
+                    .Where(artist => artist.Name.ToLower().Contains(searchText))
+                    .ToList();
+
+                // Update the ItemsSource of the ListView with the artists
+                ArtistsListView.ItemsSource = searchedArtists;
+            }
+        }
     }
 }

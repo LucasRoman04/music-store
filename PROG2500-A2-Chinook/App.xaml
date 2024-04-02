@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:PROG2500_A2_Chinook"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock" x:Key="PageTitleTextBoxStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <SolidColorBrush x:Key="PageBackgroundColor" Color="#9FC1FD"/>
     </Application.Resources>
 </Application>

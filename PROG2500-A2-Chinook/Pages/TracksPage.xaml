@@ -8,27 +8,41 @@
       d:DesignHeight="450" d:DesignWidth="700"
       Title="TracksPage">
 
+    <Page.Resources>
+        <BitmapImage x:Key="SearchIcon" UriSource="/Images/search_icon.png"></BitmapImage>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <!-- Row for the text -->
+            <!-- Row for the text adn search -->
             <RowDefinition Height="Auto"/>
             <!-- Row for the ListView -->
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Chinook Tracks text -->
-        <TextBlock Text="Chinook Tracks" FontWeight="Bold" FontSize="18" Margin="10,10,10,0"/>
+        <TextBlock Text="Chinook Tracks" Style="{StaticResource PageTitleTextBoxStyle}"/>
+
+        <!-- Search Box -->
+        <StackPanel Orientation="Horizontal" Margin="300,0,10,5">
+            <TextBlock Text="Search Tracks:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="SearchTextBox" VerticalAlignment="Center" Width="180"/>
+            <Button Click="SearchButton_Click" Width="22" Height="22">
+                <Image Source="{StaticResource SearchIcon}"/>
+            </Button>
+        </StackPanel>
 
         <!-- ListView -->
-        <ListView Name="TracksListView" Grid.Row="1" Margin="10" Background="#9FC1FD">
+        <ListView Name="TracksListView" Grid.Row="1" Margin="10" Background="{StaticResource PageBackgroundColor}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
-                        <TextBlock Text="{Binding Composer, StringFormat='Composer: {0:N0}'}"/>
-                        <TextBlock Text="{Binding Milliseconds, StringFormat='Length: {0:N0} ms'}"/>
-                        <TextBlock Text="{Binding Bytes, StringFormat='Size: {0:N0} bytes'}"/>
-                        <TextBlock Text="{Binding UnitPrice, StringFormat='Price: {0:C2}'}"/>
+                        <!-- Using partial class -->
+                        <TextBlock Text="{Binding myTrackName}" FontWeight="Bold" FontSize="16"/>
+                        <TextBlock Text="{Binding myComposer}"/>
+                        <TextBlock Text="{Binding myMilliseconds}"/>
+                        <TextBlock Text="{Binding myBytes}"/>
+                        <TextBlock Text="{Binding myUnitPrice}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

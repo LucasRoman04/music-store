@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="Chinook Music Store" Height="450" Width="700">
 
+    <!-- Define Resources -->
+    <Window.Resources>
+        <BitmapImage x:Key="ExitIcon" UriSource="Images/exit_icon.png" />
+        <BitmapImage x:Key="HomeIcon" UriSource="Images/home_icon.png" />
+        <BitmapImage x:Key="ArtistsIcon" UriSource="Images/artists_icon.png" />
+        <BitmapImage x:Key="AlbumsIcon" UriSource="Images/albums_icon.png" />
+        <BitmapImage x:Key="TracksIcon" UriSource="Images/tracks_icon.png" />
+        <BitmapImage x:Key="MusicCatalogIcon" UriSource="Images/music_catalog_icon.png" />
+        <BitmapImage x:Key="CustomerOrdersIcon" UriSource="Images/customer_orders_icon.png" />
+
+        <SolidColorBrush x:Key="MainBackground" Color="#408BF0"/>
+        <SolidColorBrush x:Key="SecondaryBackground" Color="#285FF1"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -19,48 +33,58 @@
         </Grid.RowDefinitions>
 
         <!-- Menu Bar -->
-        <Menu Grid.RowSpan="3" Grid.ColumnSpan="2" Background="#408BF0">
+        <Menu Grid.RowSpan="3" Grid.ColumnSpan="2" Background="{StaticResource MainBackground}">
             <MenuItem Header="File" FontSize="15">
                 <MenuItem Header="Exit" Click="ExitClicked">
                     <MenuItem.Icon>
-                        <Image Source="Images/exit_icon.png" Width="16" Height="16"/>
+                        <Image Source="{StaticResource ExitIcon}" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Pages" FontSize="15">
                 <MenuItem Header="Home" Click="NavigateToHome">
                     <MenuItem.Icon>
-                        <Image Source="Images/home_icon.png" Width="16" Height="16"/>
+                        <Image Source="{StaticResource HomeIcon}" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="View Artists" Click="NavigateToArtists">
                     <MenuItem.Icon>
-                        <Image Source="Images/artists_icon.png" Width="16" Height="16"/>
+                        <Image Source="{StaticResource ArtistsIcon}" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="View Albums" Click="NavigateToAlbums">
                     <MenuItem.Icon>
-                        <Image Source="Images/albums_icon.png" Width="16" Height="16"/>
+                        <Image Source="{StaticResource AlbumsIcon}" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="View Tracks" Click="NavigateToTracks">
                     <MenuItem.Icon>
-                        <Image Source="Images/tracks_icon.png" Width="16" Height="16"/>
+                        <Image Source="{StaticResource TracksIcon}" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="View Music Catalog" Click="NavigateToMusicCatalog">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource MusicCatalogIcon}" Width="16" Height="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="View Customer Orders" Click="NavigateToCustomerOrders">
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource CustomerOrdersIcon}" Width="16" Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
 
         <!-- Title -->
-        <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,1,0,359" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="#285FF1"/>
+        <TextBlock Text="Welcome to the Chinook Music Store!" TextAlignment="Center" FontSize="19" FontWeight="Bold" Margin="0,1,0,359" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="{StaticResource SecondaryBackground}"/>
 
         <!-- Left Side Bar -->
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0" Width="56" Grid.Row="1" Background="#285FF1" Grid.RowSpan="2">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,20,0,0" Width="56" Grid.Row="1" Background="{StaticResource SecondaryBackground}" Grid.RowSpan="2">
             <Button Content="Home" Click="NavigateToHome" Margin="0,25,0,15" ToolTip="Home Page" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
-                            <Image Source="Images/home_icon.png" Width="32" Height="32"/>
+                            <Image Source="{StaticResource HomeIcon}" Width="32" Height="32"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Button.Template>
@@ -69,7 +93,7 @@
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
-                            <Image Source="Images/artists_icon.png" Width="32" Height="32"/>
+                            <Image Source="{StaticResource ArtistsIcon}" Width="32" Height="32"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Button.Template>
@@ -78,7 +102,7 @@
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
-                            <Image Source="Images/albums_icon.png" Width="32" Height="32"/>
+                            <Image Source="{StaticResource AlbumsIcon}" Width="32" Height="32"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Button.Template>
@@ -87,7 +111,25 @@
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
-                            <Image Source="Images/tracks_icon.png" Width="32" Height="32"/>
+                            <Image Source="{StaticResource TracksIcon}" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Music Catalog" Click="NavigateToMusicCatalog" Margin="0,0,0,15" ToolTip="View All Music Catalogs" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="{StaticResource MusicCatalogIcon}" Width="32" Height="32"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Customer Orders" Click="NavigateToCustomerOrders" Margin="0,0,0,15" ToolTip="View All Customer Orders" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Image Source="{StaticResource CustomerOrdersIcon}" Width="32" Height="32"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Button.Template>
@@ -95,7 +137,7 @@
         </StackPanel>
 
         <!-- Content Area -->
-        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,31,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="#408BF0"/>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,31,0,0" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="{StaticResource MainBackground}"/>
 
     </Grid>
 </Window>
