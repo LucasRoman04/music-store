@@ -35,10 +35,10 @@ namespace PROG2500_A2_Chinook.Pages
         private void LoadMusicCatalog()
         {
             var artists = context.Artists.ToList();
-            var albums = context.Albums.ToList();
-            var tracks = context.Tracks.ToList();
+            context.Albums.ToList();
+            context.Tracks.ToList();
 
-            // Set the viewsource data source to use the tracks data collection
+            // Set the ItemsSource of the ListView to the artists data
             MusicCatalogListView.ItemsSource = artists;
         }
 
@@ -55,7 +55,7 @@ namespace PROG2500_A2_Chinook.Pages
                     artist = newGroup.ToList<Artist>()
                 };
 
-            // Execute the query against the db and assign it as the data source for the listview
+            // Update the ItemsSource of the ListView
             MusicCatalogListView.ItemsSource = query.ToList();
 
             // Change the visibility of the ListView to Visible

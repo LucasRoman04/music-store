@@ -9,15 +9,7 @@
       Title="MusicCatalogPage">
 
     <Page.Resources>
-        <Style TargetType="TextBlock" x:Key="PageTitleTextBoxStyle">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="10"/>
-        </Style>
-        
         <BitmapImage x:Key="SearchIcon" UriSource="/Images/search_icon.png"></BitmapImage>
-
-        <CollectionViewSource x:Key="musicCatalogViewSource"></CollectionViewSource>
     </Page.Resources>
 
     <Grid>
@@ -40,7 +32,7 @@
             </Button>
         </StackPanel>
         
-        <!-- ListView for displaying artists -->
+        <!-- ListView for displaying Music Catalog -->
         <ListView Name="MusicCatalogListView" Margin="10,0,10,10" Grid.Row="2" Background="{StaticResource PageBackgroundColor}" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate>

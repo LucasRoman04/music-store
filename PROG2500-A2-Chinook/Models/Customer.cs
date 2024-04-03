@@ -11,5 +11,28 @@ namespace PROG2500_A2_Chinook.Models
 
     public partial class Customer
     {
+        public string customerFullName
+        {
+            get
+            {
+                return LastName + ", " + FirstName;
+            }
+        }
+
+        public string? customerCountry
+        {
+            get
+            {
+                return Country;
+            }
+        }
+
+        public string customerEmail
+        {
+            get
+            {
+                return Email;
+            }
+        }
     }
 }

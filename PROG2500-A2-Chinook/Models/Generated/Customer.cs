@@ -31,7 +31,7 @@ public partial class Customer
 
     public int? SupportRepId { get; set; }
 
-    public virtual ICollection<Invoice> Invoices { get; } = new List<Invoice>();
+    public virtual ICollection<Invoice> Invoices { get; set; } = new List<Invoice>();
 
     public virtual Employee? SupportRep { get; set; }
 }
