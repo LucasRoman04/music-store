@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PROG2500_A2_Chinook.Data;
+using PROG2500_A2_Chinook.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,42 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class MusicCatalogPage : Page
     {
+        ChinookContext context = new ChinookContext();
+
         public MusicCatalogPage()
         {
             InitializeComponent();
+            LoadMusicCatalog();
         }
+
+        private void LoadMusicCatalog()
+        {
+            var artists = context.Artists.ToList();
+            var albums = context.Albums.ToList();
+            var tracks = context.Tracks.ToList();
+
+            // Set the viewsource data source to use the tracks data collection
+            MusicCatalogListView.ItemsSource = artists;
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            var query =
+                from artist in context.Artists
+                where artist.Name.Contains(SearchTextBox.Text)
+                group artist by artist.Name.ToUpper().Substring(0, 1) into newGroup
+                select new
+                {
+                    Index = newGroup.Key,
+                    ArtistCount = newGroup.Count().ToString(),
+                    artist = newGroup.ToList<Artist>()
+                };
+
+            // Execute the query against the db and assign it as the data source for the listview
+            MusicCatalogListView.ItemsSource = query.ToList();
+
+            // Change the visibility of the ListView to Visible
+            MusicCatalogListView.Visibility = Visibility.Visible;
+        }        
     }
 }

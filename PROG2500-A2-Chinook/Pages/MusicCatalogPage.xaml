@@ -8,6 +8,18 @@
       d:DesignHeight="450" d:DesignWidth="700"
       Title="MusicCatalogPage">
 
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="PageTitleTextBoxStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        
+        <BitmapImage x:Key="SearchIcon" UriSource="/Images/search_icon.png"></BitmapImage>
+
+        <CollectionViewSource x:Key="musicCatalogViewSource"></CollectionViewSource>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <!-- Row for the text -->
@@ -17,9 +29,63 @@
         </Grid.RowDefinitions>
 
         <!-- Music Catalog text -->
-        <TextBlock Text="Music Catalog" FontWeight="Bold" FontSize="18" Margin="10"/>
+        <TextBlock Text="Music Catalog" Style="{StaticResource PageTitleTextBoxStyle}"/>
 
+        <!-- Search Box -->
+        <StackPanel Orientation="Horizontal" Margin="300,0,10,5">
+            <TextBlock Text="Search by Artist:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="SearchTextBox" VerticalAlignment="Center" Width="180"/>
+            <Button Click="SearchButton_Click" Width="22" Height="22">
+                <Image Source="{StaticResource SearchIcon}"/>
+            </Button>
+        </StackPanel>
         
+        <!-- ListView for displaying artists -->
+        <ListView Name="MusicCatalogListView" Margin="10,0,10,10" Grid.Row="2" Background="{StaticResource PageBackgroundColor}" Visibility="Collapsed">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Index}" FontWeight="Bold" Margin="5" FontSize="13"></TextBlock>
+                        <TextBlock Text="{Binding ArtistCount, StringFormat='({0})'}" Margin="0, 5"></TextBlock>
+                        <Expander Header="View Artist(s)" FontSize="15">
+                            <ListView ItemsSource="{Binding artist}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Name}" FontWeight="Bold"></TextBlock>
+                                            <Expander Header="View Album(s)" FontSize="15" ScrollViewer.CanContentScroll="True"
+                                                ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                                <ListView ItemsSource="{Binding Albums}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate DataType="local:Albums">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{Binding Title}"></TextBlock>
+                                                                <Expander Header="View Track(s)" FontSize="15">
+                                                                    <ListView ItemsSource="{Binding Tracks}">
+                                                                        <ListView.ItemTemplate>
+                                                                            <DataTemplate DataType="local:Tracks">
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                                                                </StackPanel>
+                                                                            </DataTemplate>
+                                                                        </ListView.ItemTemplate>
+                                                                    </ListView>
+                                                                </Expander>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </Expander>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Expander>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 
 </Page>

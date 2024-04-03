@@ -15,7 +15,7 @@ namespace PROG2500_A2_Chinook.Models
         {  
             get
             {
-                return this.AlbumId;
+                return AlbumId;
             } 
         }
 
@@ -23,7 +23,7 @@ namespace PROG2500_A2_Chinook.Models
         {  
             get
             {
-                return this.Title;
+                return Title;
             } 
         }
     }
