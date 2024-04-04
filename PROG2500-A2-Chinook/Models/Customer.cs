@@ -34,5 +34,20 @@ namespace PROG2500_A2_Chinook.Models
                 return Email;
             }
         }
+
+        public string? customerLocation
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(State))
+                {
+                    return $"{City}, {State}";
+                }
+                else
+                {
+                    return City;
+                }
+            }
+        }
     }
 }

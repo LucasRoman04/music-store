@@ -40,7 +40,7 @@
                         <TextBlock Text="{Binding Index}" FontWeight="Bold" Margin="5" FontSize="13"></TextBlock>
                         <TextBlock Text="{Binding ArtistCount, StringFormat='({0})'}" Margin="0, 5"></TextBlock>
                         <Expander Header="View Artist(s)" FontSize="15">
-                            <ListView ItemsSource="{Binding artist}" Background="{StaticResource PageBackgroundColor}">
+                            <ListView ItemsSource="{Binding artist}" Background="{StaticResource SecondaryPageBackgroundColor}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -53,7 +53,7 @@
                                                             <StackPanel Orientation="Horizontal">
                                                                 <TextBlock Text="{Binding Title}"></TextBlock>
                                                                 <Expander Header="View Track(s)" FontSize="15">
-                                                                    <ListView ItemsSource="{Binding Tracks}" Background="{StaticResource PageBackgroundColor}">
+                                                                    <ListView ItemsSource="{Binding Tracks}" Background="{StaticResource SecondaryPageBackgroundColor}">
                                                                         <ListView.ItemTemplate>
                                                                             <DataTemplate DataType="local:Tracks">
                                                                                 <StackPanel Orientation="Horizontal">

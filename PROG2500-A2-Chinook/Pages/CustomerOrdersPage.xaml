@@ -39,26 +39,16 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <!-- Customer details column -->
                             <ColumnDefinition Width="Auto" />
-                            <!-- Expander column -->
                         </Grid.ColumnDefinitions>
-                        <!-- Customer details -->
                         <StackPanel Grid.Column="0">
                             <TextBlock Text="{Binding customerFullName}" FontWeight="Bold" FontSize="15"></TextBlock>
-                            <TextBlock>
-                                <TextBlock.Text>
-                                    <MultiBinding StringFormat="{}{0}, {1}">
-                                        <Binding Path="City"/>
-                                        <Binding Path="State"/>
-                                    </MultiBinding>
-                                </TextBlock.Text>
-                            </TextBlock>
+                            <TextBlock Text="{Binding customerLocation}"></TextBlock>
                             <TextBlock Text="{Binding customerCountry}"></TextBlock>
                             <TextBlock Text="{Binding customerEmail}"></TextBlock>
                         </StackPanel>
                         <Expander Grid.Column="3" Header="View Invoice(s)" FontSize="15">
-                            <ListView ItemsSource="{Binding Invoices}">
+                            <ListView ItemsSource="{Binding Invoices}" Background="{StaticResource SecondaryPageBackgroundColor}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate DataType="PROG2500_A2_Chinook.Models.Invoice">
                                         <StackPanel Orientation="Horizontal">

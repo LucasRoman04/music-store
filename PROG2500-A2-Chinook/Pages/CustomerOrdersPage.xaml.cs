@@ -36,7 +36,7 @@ namespace PROG2500_A2_Chinook.Pages
             context.Invoices.ToList();
             context.InvoiceLines.ToList();
 
-            // Set the ItemsSource of the ListView to the artists data
+            // Set the ItemsSource of the ListView to the customers data
             CustomerOrdersListView.ItemsSource = customers;
         }
 
@@ -47,11 +47,9 @@ namespace PROG2500_A2_Chinook.Pages
 
             foreach(var customer in query)
             {
-                // Sort the invoices for each customer by OrderDate in descending order
+                // Sort the invoices for each customer by InvoiceDate in descending order
                 customer.Invoices = customer.Invoices
                     .OrderByDescending(invoice => invoice.InvoiceDate.Year)
-                    //.ThenByDescending(invoice => invoice.InvoiceDate.Month)
-                    //.ThenByDescending(invoice => invoice.InvoiceDate.Day)
                     .ToList();
             }
 

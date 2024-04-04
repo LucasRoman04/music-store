@@ -12,5 +12,6 @@
         </Style>
 
         <SolidColorBrush x:Key="PageBackgroundColor" Color="#9FC1FD"/>
+        <SolidColorBrush x:Key="SecondaryPageBackgroundColor" Color="#408BF1"/>
     </Application.Resources>
 </Application>
