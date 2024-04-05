@@ -32,7 +32,7 @@
             </Button>
         </StackPanel>
 
-        <!-- ListView for displaying Customer Orders -->
+        <!-- ListView for displaying customer orders -->
         <ListView Name="CustomerOrdersListView" Margin="10,0,10,10" Grid.Row="2" Background="{StaticResource PageBackgroundColor}">
             <ListView.ItemTemplate>
                 <DataTemplate>
